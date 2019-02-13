@@ -11,12 +11,17 @@ $vanus = 22;
 $kaal = 80;
 $sugu = 'mees';
 
-if($sugu == 'mees'){
-    echo '<p style="color:blue;">';
-} else {
-   echo '<p style="color:red;">';
+switch ($sugu) {
+    case 'mees':
+        echo '<p style="color: blue">';
+        break;
+    case 'naine':
+        echo '<p style="color: red">';
+        break;
+    default:
+        echo '<p style="color: green">';
+        break;
 }
-
 //var_dump($eesnimi); muutuja sisu test
 
 echo 'minu eesnimi on '.$eesnimi.'<br>';
