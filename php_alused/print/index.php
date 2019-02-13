@@ -13,9 +13,3 @@
 </div>
 </body>
 </html>
-/**
- * Created by PhpStorm.
- * User: kert.metsaots
- * Date: 13.02.2019
- * Time: 13:08
- */
