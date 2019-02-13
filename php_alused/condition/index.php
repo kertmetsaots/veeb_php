@@ -1,3 +1,20 @@
+<style>
+    div {
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        font-size: 70px;
+        text-align: center;
+        vertical-align: middle;
+
+    }
+    .paaris{
+        background: red;
+    }
+    .paaritu{
+        background: green;
+    }
+</style>
 <?php
 /**
  * Created by PhpStorm.
