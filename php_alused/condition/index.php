@@ -5,27 +5,14 @@
  * Date: 13.02.2019
  * Time: 14:14
  */
-$eesnimi = 'Kert';
-$perenimi = 'Metsaots';
-$vanus = 22;
-$kaal = 80;
-$sugu = 'mees';
+//genereerime juhusliku arvu
+$arv = rand(0, 100);
+// arvutame jääk kahega
+$jaak = $arv % 2;
+//kontrollime kui jääk on 0 - paaris arv
 
-switch ($sugu) {
-    case 'mees':
-        echo '<p style="color: blue">';
-        break;
-    case 'naine':
-        echo '<p style="color: red">';
-        break;
-    default:
-        echo '<p style="color: green">';
-        break;
+if ($jaak == 0) {
+    echo '<div class="paaris">'.$arv.'<div/>';
+} else {
+    echo '<div class="paaritu">'.$arv.'<div/>';
 }
-//var_dump($eesnimi); muutuja sisu test
-
-echo 'minu eesnimi on '.$eesnimi.'<br>';
-echo 'minu perenimi on '.$perenimi.'<br>';
-echo 'minu vanus on '.$vanus.'<br>';
-echo 'minu kaal on '.$kaal.'<br>';
-
