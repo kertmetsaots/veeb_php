@@ -12,3 +12,8 @@ $kaal = 80;
 
 //var_dump($eesnimi); muutuja sisu test
 
+echo 'minu eesnimi on '.$eesnimi.'<br>';
+echo 'minu perenimi on '.$perenimi.'<br>';
+echo 'minu vanus on '.$vanus.'<br>';
+echo 'minu kaal on '.$kaal.'<br>';
+
