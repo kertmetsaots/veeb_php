@@ -40,10 +40,10 @@ function tabeliPais(){
 }
 function tabeliRida($arv){
     $rida = '<tr>';
-    $rida .= '<td>'.$arv.'</td>';
+    $rida = '<td>'.$arv.'</td>';
     $rida .= '<td class="paaris">';
     if(kasPaaris($arv)){
-        $rida .= '<i class="fas fa-angle-down"></i>';
+        echo '<i class="fas fa-angle-down"></i>';
     }
     $rida .= '</td>';
     $rida .= '<td class="paaritu">';
@@ -53,7 +53,7 @@ function tabeliRida($arv){
     $rida .= '</td>';
     $rida .= '<td class="algarv">';
     if(kasAlgarv($arv)){
-        $rida .= '<i class="fas fa-angle-down"></i>';
+        echo '<i class="fas fa-angle-down"></i>';
     }
     $rida .= '</td>';
     $rida .= '</tr>';
@@ -64,7 +64,7 @@ function tabel($ridadeArv){
     echo tabeliPais();
     echo '<tbody>';
     for($reanumber = 0; $reanumber <= $ridadeArv; $reanumber++){
-        echo tabeliRida($reanumber);
+        tabeliRida($reanumber);
     }
     echo '</tbody>';
     echo '</table>';
