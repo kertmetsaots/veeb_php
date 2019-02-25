@@ -44,6 +44,16 @@ function vordlehinda ($raamat1, $raamat2) {
     }
 }
 
+function filtreeriHinnaJargi($andmed, $algHind, $loppHind) {
+    $filtreerimisTulemus = array();
+    foreach ($andmed as $element) {
+        if ($element['hind'] >= $algHind and $element['hind'] <= $loppHind) {
+            $filtreerimisTulemus[] = $element;
+        }
+    }
+    return $filtreerimisTulemus;
+}
+
 function tabeliPais($andmed){
     echo '<thead>';
     echo '<tr>';
@@ -75,4 +85,4 @@ usort($raamatud, 'vordlehinda');
 
 tabel($raamatud);
 
-
+tabel (filtreeriHinnaJargi($raamatud, 20, 100));
