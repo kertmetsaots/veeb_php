@@ -3,7 +3,7 @@
 $raamatud = array(
     array(
         'nimi' => 'Õpime üheskoos arvutiteadust',
-        'hind' => '20,25 €',
+        'hind' => 20.25,
         'ilmumisaasta' => '2018',
         'keel' => 'eesti',
         'grupp' => 'arvuti ja internet'
@@ -11,7 +11,7 @@ $raamatud = array(
 
     array(
         'nimi' => 'Internet sinu sees',
-        'hind' => '13,59 €',
+        'hind' => 13.59,
         'ilmumisaasta' => '2018',
         'keel' => 'eesti',
         'grupp' => 'arvuti ja internet'
@@ -19,7 +19,7 @@ $raamatud = array(
 
     array(
         'nimi' => 'Lihtsad liharoad',
-        'hind' => '5,90 €',
+        'hind' => 5.90,
         'ilmumisaasta' => '2019',
         'keel' => 'eesti',
         'grupp' => 'kokandus'
@@ -27,12 +27,22 @@ $raamatud = array(
 
     array(
         'nimi' => 'Heegelda endale kaisupoliitik',
-        'hind' => '26,95 €',
+        'hind' => 26.95,
         'ilmumisaasta' => '2019',
         'keel' => 'eesti',
         'grupp' => 'Meelelahutus'
     )
 );
+
+function vordlehinda ($raamat1, $raamat2) {
+    if ($raamat1['hind'] == $raamat2['hind']) {
+        return 0;
+    } else if ($raamat1['hind'] < $raamat2['hind']) {
+        return -1;
+    } else {
+        return 1;
+    }
+}
 
 function tabeliPais($andmed){
     echo '<thead>';
@@ -60,6 +70,9 @@ function tabel($andmed){
     echo '</tbody>';
     echo '</table>';
 }
+
+usort($raamatud, 'vordlehinda');
+
 tabel($raamatud);
 
 
