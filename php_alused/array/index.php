@@ -1,42 +1,65 @@
 <?php
-$peppa = array(
-    'nimi' => 'Peppa',
-    'sugu' => 'naine',
-    'vanus' => 4,
-    'pikkus' => 1.04
+
+$raamatud = array(
+    array(
+        'nimi' => 'Õpime üheskoos arvutiteadust',
+        'hind' => '20,25 €',
+        'ilmumisaasta' => '2018',
+        'keel' => 'eesti',
+        'grupp' => 'arvuti ja internet'
+    ),
+
+    array(
+        'nimi' => 'Internet sinu sees',
+        'hind' => '13,59 €',
+        'ilmumisaasta' => '2018',
+        'keel' => 'eesti',
+        'grupp' => 'arvuti ja internet'
+    ),
+
+    array(
+        'nimi' => 'Lihtsad liharoad',
+        'hind' => '5,90 €',
+        'ilmumisaasta' => '2019',
+        'keel' => 'eesti',
+        'grupp' => 'kokandus'
+    ),
+
+    array(
+        'nimi' => 'Heegelda endale kaisupoliitik',
+        'hind' => '26,95 €',
+        'ilmumisaasta' => '2019',
+        'keel' => 'eesti',
+        'grupp' => 'Meelelahutus'
+    )
 );
-$george = array(
-    'nimi' => 'George',
-    'sugu' => 'mees',
-    'vanus' => 2,
-    'pikkus' => 0.95
-);
-foreach ($peppa as $nimi=>$vaartus){
-    echo $nimi.' - '.$vaartus.'<br>';
-}
-echo '<hr>';
-foreach ($george as $nimi=>$vaartus){
-    echo $nimi.' - '.$vaartus.'<br>';
-}
-echo '<hr>';
-echo $peppa['nimi'].' on '.$peppa['vanus'].' aastat vana<br>';
-echo $george['nimi'].' on '.$george['vanus'].' aastat vana<br>';
-echo '<hr>';
-$porsad = array();
-$porsad['peppa'] = $peppa;
-$porsad['george'] = $george;
-$porsad['peppa']['lemmik varv'] = 'punane';
-$porsad['george']['lemmik varv'] = 'sinine';
-foreach ($porsad as $porsaseNimi=>$porsaseAndmed){
-    if($porsaseAndmed['sugu'] == 'naine'){
-        echo '<p style="color: red">';
-    } else {
-        echo '<p style="color: blue">';
+
+function tabeliPais($andmed){
+    echo '<thead>';
+    echo '<tr>';
+    foreach ($andmed as $element){
+        echo '<th>'.$element.'</th>';
     }
-    echo '<b>'.$porsaseNimi.'</b></p>';
-    echo '<ul>';
-    foreach ($porsaseAndmed as $nimetus=>$vaartus){
-        echo '<li>'.$nimetus.' - '.$vaartus.'</li>';
-    }
-    echo '</ul>';
+    echo '</tr>';
+    echo '</thead>';
 }
+function tabeliRida($andmed){
+    echo '<tr>';
+    foreach ($andmed as $elemendiNimetus => $elemendiVaartus){
+        echo '<td>'.$elemendiVaartus.'</td>';
+    }
+    echo '</tr>';
+}
+function tabel($andmed){
+    echo '<table border="1">';
+    tabeliPais(array_keys($andmed[0]));
+    echo '<tbody>';
+    foreach ($andmed as $element){
+        tabeliRida($element);
+    }
+    echo '</tbody>';
+    echo '</table>';
+}
+tabel($raamatud);
+
+
