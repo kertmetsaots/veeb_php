@@ -8,13 +8,48 @@ function failiKontroll($failiNimi) {
 }
 
 function loeFailist($failiNimi) {
-    if(failiKontroll($failiNimi)) {
-        $fp = fopen($failiNimi, 'r');
-        while ($fp) {
+        $raamat = array();
+        $nimetused = array(
+            'nimetus',
+            'hind',
+            'aasta',
+            'keel',
+            'grupp'
+        );
+        if (failiKontroll($failiNimi)) {
+            $fp = fopen($failiNimi, 'r');
+            $raamat = array();
+        while (!feof($fp)) {
             $rida = fgets($fp);
-            echo $rida.'<br>';
+            if (trim($rida) != '') {
+                $raamat[] = $rida;
+            } else {
+                $raamat = array_combine($nimetused, $raamat);
+                $raamatud[] = $raamat;
+                $raamat = array();
+            }
         }
+    }
+    return $raamatud;
+}
+
+
+
+function tabeliFailist($failiNimi) {
+    if (failiKontroll($failiNimi)) {
+        $fp = fopen($failiNimi, 'r');
+        echo '<table border="1">';
+        echo '<tr>';
+        while (!feof($fp)) {
+            $rida = fgets($fp);
+            if (trim($rida) != '') {
+                echo '<td>'.$rida.'</td>';
+            } else {
+                echo '</tr>';
+            }
+        }
+        echo '</table>';
     }
 }
 
-loeFailist('raamatud.txt');
+tabeliFailist('raamatud.txt');
