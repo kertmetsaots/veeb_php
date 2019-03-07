@@ -1,5 +1,13 @@
 <?php
-define('HOST', 'localhost');
-define('USER', 'metsaots_veeb');
-define('PASS', 'q1w2e3r4t5y6');
-define('DB', 'metsaots_veeb_is');
+require_once 'db_conf.php';
+
+function dbconnect($h, $u, $p, $db) {
+    $connect = mysqli_connect($h, $u, $p, $db);
+    if ($connect == false) {
+        echo 'probleem andmebaasi ühendamisega<br>';
+        exit;
+    }
+    return $connect;
+}
+
+$connectIKT = dbconnect(HOST, USER, PASS, DB);
