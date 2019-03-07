@@ -4,7 +4,7 @@ require_once 'db_conf.php';
 function dbconnect($h, $u, $p, $db) {
     $connect = mysqli_connect($h, $u, $p, $db);
     if ($connect == false) {
-        echo 'probleem andmebaasi ühendamisega<br>';
+        echo 'Probleem andmebaasi ühendamisega<br>';
         exit;
     }
     return $connect;
