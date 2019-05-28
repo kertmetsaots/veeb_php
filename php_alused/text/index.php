@@ -1,10 +1,7 @@
 <?php
 
-$tekst = 'Proovin Midagi Kirjutada';
-echo strtolower($tekst);
-echo '<br>';
-echo strtoupper($tekst);
-echo  '<br>';
-echo ucfirst(strtolower($tekst));
-echo '<br>';
-echo ucwords(strtolower($tekst));
+$tekst = "               Proovin midagi kirjutada           ";
+echo "<pre>$tekst</pre>";
+echo "<pre>".trim($tekst)."</pre>";
+echo "<pre>".ltrim($tekst)."</pre>";
+echo "<pre>".rtrim($tekst)."</pre>";
