@@ -1,8 +1,13 @@
 <?php
-$metshein = mktime(0,0,0,06,11,1980);
-$mina = mktime(0,0,0,10,21,1996);
-echo "Metsheina sünnipäev on ".date('d.m.Y', $metshein).'<br>';
-echo "Minu sünnipäev on ".date('d.m.Y', $mina).'<br>';
-$vanusevahe = $mina - $metshein;
-$vahe = round($vanusevahe / (60 * 60 *24 * 364));
-echo "Metshein on minust $vahe aastat vanem";
+date_default_timezone_set('Europe/Tallinn');
+$praegust = new Datetime("now");
+$hommik = new DateTime('08:30');
+$louna = new DateTime('11:00');
+$ohtu = new DateTime('17:00');
+if($praegust >= $hommik && $praegust <= $louna){
+    echo "Tere hommikust!";
+} if ($praegust >= $louna && $praegust <= $ohtu){
+    echo "Tere päevast!";
+}   else {
+    "Tere õhtust!";
+}
