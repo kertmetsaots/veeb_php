@@ -20,8 +20,10 @@ $kuu = $eesti_kuud[date('n')];
 $aasta = date('Y');
 //kuupäeva väljastamine
 echo $paev.'.'.$kuu.' '.$aasta;
-if(checkdate(13,29,2049)) {
-    echo('Kuupäev korras!');
-} else {
-    echo ('Kuupäev on valesti sisestatud');
-}
+$now = time(); // praegune kellaaeg
+//jaanipäev
+$your_date = strtotime("2019-05-20");
+//arvutan välja ajavahe
+$datediff = $your_date - $now;
+//ümardan arvu päevadeni
+echo round($datediff / (60 * 60 * 24));
