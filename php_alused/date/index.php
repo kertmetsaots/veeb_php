@@ -1,29 +1,8 @@
 <?php
-//kuude massiiv
-$eesti_kuud = array(
-    1=> 'jaanuar',
-    'veebruar',
-    'märts',
-    'aprill',
-    'mai',
-    'juuni',
-    'juuli',
-    'august',
-    'september',
-    'oktoober',
-    'november',
-    'detsember'
-);
-//kuupäevad massiividesse
-$paev = date('d');
-$kuu = $eesti_kuud[date('n')];
-$aasta = date('Y');
-//kuupäeva väljastamine
-echo $paev.'.'.$kuu.' '.$aasta;
-$now = time(); // praegune kellaaeg
-//jaanipäev
-$your_date = strtotime("2019-05-20");
-//arvutan välja ajavahe
-$datediff = $your_date - $now;
-//ümardan arvu päevadeni
-echo round($datediff / (60 * 60 * 24));
+$metshein = mktime(0,0,0,06,11,1980);
+$mina = mktime(0,0,0,10,21,1996);
+echo "Metsheina sünnipäev on ".date('d.m.Y', $metshein).'<br>';
+echo "Minu sünnipäev on ".date('d.m.Y', $mina).'<br>';
+$vanusevahe = $mina - $metshein;
+$vahe = round($vanusevahe / (60 * 60 *24 * 364));
+echo "Metshein on minust $vahe aastat vanem";
